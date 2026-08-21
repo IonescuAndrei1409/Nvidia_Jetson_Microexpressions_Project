@@ -19,7 +19,6 @@ NOTA DESPRE ISTORICUL FISIERELOR:
 Pentru a menține acest repository curat și ușor de citit, fișierele principale au fost încărcate pe GitHub direct în versiunea lor finală. Logica a fost deja dezvoltată și testată complet în Google Colab, nefiind necesare modificări majore de cod în timpul asamblării pe mediul local.
 
 Echipa: Ionescu Andrei-Cristian, Ionescu Alex Gabriel, Voicu Daria Stefania. 
-© 2026 Toate drepturile rezervate.
 
 ----------------------------------------------------------------------
 
@@ -44,4 +43,3 @@ NOTE ON COMMIT HISTORY:
 To keep this repository clean and easy to read, the main files were uploaded to GitHub directly in their final consolidated version. The core logic was already fully developed and tested in Google Colab, requiring no major code modifications during local assembly.
 
 Team: Ionescu Andrei-Cristian, Ionescu Alex Gabriel, Voicu Daria Stefania. 
-© 2026 All rights reserved.
