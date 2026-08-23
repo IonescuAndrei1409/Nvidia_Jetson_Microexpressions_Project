@@ -51,7 +51,9 @@ def porneste_detectia(model_path="best.pt"):
 
         with FaceLandmarker.create_from_options(options) as landmarker:
             cap = cv2.VideoCapture(0)  # 0 pentru webcam-ul laptopului
-
+            # Pentru fps
+            prev_frame_time = 0
+            new_frame_time = 0
             while cap.isOpened():
                 success, frame = cap.read()
                 if not success:
@@ -135,7 +137,13 @@ def porneste_detectia(model_path="best.pt"):
                                     y_offset += 25
                             blendshape_buffer.append(current_aus)
                         break  # Procesam doar prima fata
-
+                # Calculam si afisam fps-ul
+                new_frame_time = time.time()
+                fps = 1 / (new_frame_time - prev_frame_time)
+                prev_frame_time = new_frame_time
+                fps = int(fps)
+                fps = str(fps)
+                cv2.putText(frame, f"{fps} FPS", (15, 20), cv2.FONT_HERSHEY_SIMPLEX, 0.5, (255, 255, 255), 1)    
                 if not face_found:
                     blendshape_buffer.clear()
                     last_pose = None
