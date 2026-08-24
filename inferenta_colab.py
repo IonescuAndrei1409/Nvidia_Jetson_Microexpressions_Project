@@ -5,6 +5,7 @@ import urllib.request
 from collections import deque
 import numpy as np
 from ultralytics import YOLO
+import time
 
 # Dictionarul de emotii
 EMOTION_MAPPING = {
