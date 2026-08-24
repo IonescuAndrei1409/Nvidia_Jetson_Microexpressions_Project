@@ -95,6 +95,14 @@ def porneste_detectia(model_path="best.pt"):
                         img_crop_rgb = cv2.cvtColor(img_crop, cv2.COLOR_BGR2RGB)
                         mp_img = mp.Image(image_format=mp.ImageFormat.SRGB, data=img_crop_rgb)
                         MP_results = landmarker.detect(mp_img)
+                        if MP_results.face_landmarks:
+                          landmarks = MP_results.face_landmarks[0]
+                          crop_h, crop_w, _ = img_crop.shape
+                          for landmark in landmarks:
+                            # Punem offset pentru a desena landmark-erii pe imaginea originala, nu pe cea cropped (e comentariul MEU nu al lui Gemini)
+                            x = x1_nou + int(landmark.x * crop_w)
+                            y = y1_nou + int(landmark.y * crop_h)
+                            cv2.circle(frame, (x, y), 1, (0, 255, 255), -1)
 
                         if not MP_results.face_blendshapes:
                             continue
