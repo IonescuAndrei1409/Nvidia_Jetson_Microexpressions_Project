@@ -88,6 +88,9 @@ def porneste_detectia(model_path="best.pt"):
 
                         cv2.rectangle(frame, (x1_nou, y1_nou), (x2_nou, y2_nou), color, 2)
 
+                        cv2.putText(frame, label, (x1_nou, max(10, y1_nou - 10)), cv2.FONT_HERSHEY_SIMPLEX, 0.5, color, 2)
+
+
                         img_crop = frame[y1_nou:y2_nou, x1_nou:x2_nou]
                         if img_crop.size == 0:
                             continue
@@ -164,3 +167,4 @@ def porneste_detectia(model_path="best.pt"):
             cv2.destroyAllWindows()
     else:
         print(f"Eroare: Nu am găsit modelul la calea: {model_path}")
+        
